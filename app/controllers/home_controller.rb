@@ -42,13 +42,23 @@ class HomeController < ApplicationController
   end
 
   def testimage
-    @html = "<html><body>YOU are the Winner!!</body></html>"
-    #@kit = IMGKit.new(@html)
+    @mode = params[:id]
 
-    @image = "This comes from testimage~"
+    if @mode == 1
+      @html = "<html><body>YOU are the Winner!!</body></html>"
+      @kit = IMGKit.new(@html)
+      send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
+    elsif @mode == 2
+      @kit = IMGKit.new("http://www.naver.com/")
+      send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
+    elsif @mode == 3
+      @kit = IMGKit.new("http://saas-app-joon.herokuapp.com/")
+      send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
+    elsif @mode == 4
 
-    @kit = IMGKit.new("http://duam.net/")
-    send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
+    else
+      @image = "This comes from testimage~"
+    end
   end
 
 end
