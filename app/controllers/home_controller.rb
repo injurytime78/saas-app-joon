@@ -48,12 +48,15 @@ class HomeController < ApplicationController
       @html = "<html><body>YOU are the Winner!!</body></html>"
       @kit = IMGKit.new(@html)
       send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
+      return
     elsif @mode == 2
       @kit = IMGKit.new("http://www.naver.com/")
       send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
+      return
     elsif @mode == 3
       @kit = IMGKit.new("http://saas-app-joon.herokuapp.com/")
       send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
+      return
     elsif @mode == 4
 
     else
