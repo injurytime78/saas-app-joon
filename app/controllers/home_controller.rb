@@ -44,20 +44,20 @@ class HomeController < ApplicationController
   def testimage
     @mode = params[:id]
 
-    if @mode == 1
+    if @mode == '1'
       @html = "<html><body>YOU are the Winner!!</body></html>"
       @kit = IMGKit.new(@html)
       send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
-      return
-    elsif @mode == 2
+      redirect_to getimage_path(5) and return
+    elsif @mode == '2'
       @kit = IMGKit.new("http://www.naver.com/")
       send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
-      return
-    elsif @mode == 3
+      redirect_to getimage_path(5) and return
+    elsif @mode == '3'
       @kit = IMGKit.new("http://saas-app-joon.herokuapp.com/")
       send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
-      return
-    elsif @mode == 4
+      redirect_to getimage_path(5) and return
+    elsif @mode == '4'
 
     else
       @image = "This comes from testimage~"
