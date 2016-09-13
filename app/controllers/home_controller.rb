@@ -47,21 +47,18 @@ class HomeController < ApplicationController
     if @mode == '1'
       @html = "<html><body>YOU are the Winner!!</body></html>"
       @kit = IMGKit.new(@html)
-      send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
-      redirect_to getimage_path(5) and return
     elsif @mode == '2'
       @kit = IMGKit.new("http://www.naver.com/")
-      send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
-      redirect_to getimage_path(5) and return
     elsif @mode == '3'
       @kit = IMGKit.new("http://saas-app-joon.herokuapp.com/")
-      send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
-      redirect_to getimage_path(5) and return
     elsif @mode == '4'
-
+      @kit = IMGKit.new("http://www.google.com/")
     else
       @image = "This comes from testimage~"
+      @kit = IMGKit.new(@image)
     end
+    
+    send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
   end
 
 end
