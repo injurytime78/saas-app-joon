@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    root :to => "home#index"
   get 'home/setimage', to: "home#setimage"
   get 'home/getimage/:id', to: "home#getimage", as: 'getimage'
-  get 'home/testimage', to: "home#testimage"
+  get 'home/testimage', to: "home#testimage", as: 'testimage'
 
 
   # *MUST* come *BEFORE* devise's definitions (below)

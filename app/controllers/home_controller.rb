@@ -12,7 +12,7 @@ class HomeController < ApplicationController
       params[:tenant_id] = @tenant.id
     end
   end
-  
+
   def setimage
     #@html = "<html><body>YOU are the Winner(from setimage)!!</body></html>"
     #@kit = IMGKit.new(@html)
@@ -42,7 +42,13 @@ class HomeController < ApplicationController
   end
 
   def testimage
+    @html = "<html><body>YOU are the Winner!!</body></html>"
+    @kit = IMGKit.new(@html)
+
     @image = "This comes from testimage~"
+
+    #@kit = IMGKit.new("http://duam.net/")
+    send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
   end
-  
+
 end
