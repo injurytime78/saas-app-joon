@@ -43,11 +43,11 @@ class HomeController < ApplicationController
 
   def testimage
     @html = "<html><body>YOU are the Winner!!</body></html>"
-    @kit = IMGKit.new(@html)
+    #@kit = IMGKit.new(@html)
 
     @image = "This comes from testimage~"
 
-    #@kit = IMGKit.new("http://duam.net/")
+    @kit = IMGKit.new("http://duam.net/")
     send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
   end
 
