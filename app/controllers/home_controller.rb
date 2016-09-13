@@ -50,14 +50,14 @@ class HomeController < ApplicationController
     elsif @mode == '2'
       @kit = IMGKit.new("http://www.naver.com/")
     elsif @mode == '3'
-      @kit = IMGKit.new("http://saas-app-joon.herokuapp.com/")
+      @kit = IMGKit.new("http://rails-project-image-213221.nitrousapp.com/articles/")
     elsif @mode == '4'
       @kit = IMGKit.new("http://www.google.com/")
     else
       @image = "This comes from testimage~"
       @kit = IMGKit.new(@image)
     end
-    
+
     send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
   end
 
