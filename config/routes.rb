@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'home/index'
 
    root :to => "home#index"
+  get 'home/setimage', to: "home#setimage"
+  get 'home/getimage/:id', to: "home#getimage", as: 'getimage'
+  get 'home/testimage', to: "home#testimage"
 
 
   # *MUST* come *BEFORE* devise's definitions (below)
